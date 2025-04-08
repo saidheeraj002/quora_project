@@ -3,6 +3,7 @@ from .forms import LoginForm, RegistrationForm, QuestionForm, AnswerForm
 from .models import Users, Question, Answer
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from functools import  wraps
 
 def login(request):
     form = LoginForm()
@@ -44,7 +45,6 @@ def question_list(request):
             form = LoginForm(request.POST)
             return render(request, 'login.html', {'form': form})
 
-
 def ask_question(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
@@ -71,7 +71,6 @@ def question_detail(request, question_id):
     }
     return render(request, 'question_detail.html', context)
 
-
 def add_answer(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     if request.method == 'POST':
@@ -87,7 +86,6 @@ def add_answer(request, question_id):
             return redirect('/question_detail', question_id=question.id)
     else:
         return redirect('/question_detail', question_id=question.id)
-
 
 def like_answer(request, answer_id):
     answer = get_object_or_404(Answer, pk=answer_id)
