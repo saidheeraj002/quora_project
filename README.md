@@ -42,11 +42,11 @@ The website provides the following core features:
     * Logged-in users can post new questions.
     * All posted questions are visible to all users.
 
-* **Answer Management:**
+**Answer Management:**
     * Logged-in users can answer questions posted by others.
     * Answers are displayed below their respective questions.
 
-* **Liking Answers:**
+**Liking Answers:**
     * Logged-in users can like answers provided by others.
     * The number of likes for each answer is displayed.
 
