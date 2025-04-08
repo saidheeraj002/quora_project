@@ -26,7 +26,6 @@ def register_view(request):
     return render(request, 'registration.html', {'form': form})
 
 def question_list(request):
-    """Displays a list of all questions."""
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -47,7 +46,6 @@ def question_list(request):
 
 
 def ask_question(request):
-    """Handles the creation of a new question."""
     if request.method == 'POST':
         form = QuestionForm(request.POST)
         if form.is_valid():
@@ -56,16 +54,15 @@ def ask_question(request):
             question.author = user
             question.save()
             return redirect('/home', question_id=question.id) # Redirect to the new question
-    else: # GET request
+    else:
         form = QuestionForm()
     context = {'form': form}
     return render(request, 'ask_question.html', context)
 
 def question_detail(request, question_id):
-    """Displays a single question and its answers."""
     question = get_object_or_404(Question, pk=question_id)
-    answers = question.answers.order_by('-created_at') # Or order by likes later
-    answer_form = AnswerForm() # Empty form for adding new answers
+    answers = question.answers.order_by('-created_at')
+    answer_form = AnswerForm()
 
     context = {
         'question': question,
@@ -76,7 +73,6 @@ def question_detail(request, question_id):
 
 
 def add_answer(request, question_id):
-    """Handles submission of a new answer for a specific question."""
     question = get_object_or_404(Question, pk=question_id)
     if request.method == 'POST':
         form = AnswerForm(request.POST)
@@ -94,7 +90,6 @@ def add_answer(request, question_id):
 
 
 def like_answer(request, answer_id):
-    """Handles liking/unliking an answer."""
     answer = get_object_or_404(Answer, pk=answer_id)
     user = Users.objects.get(username=request.session['user'])
 

@@ -1,9 +1,9 @@
 Quora-Inspired Website (Django Assignment)
 
-Follow these steps to set up and run the project on your local machine:
+## Follow these steps to set up and run the project on your local machine:
 
 1. **Prerequisites:**
-    * Python 3.x installed on your system.
+    * Python 3.10 installed on your system.
     * pip (Python package installer) installed.
 
 2.  **Clone the Repository:**
@@ -49,38 +49,6 @@ The website provides the following core features:
 4. **Liking Answers:**
     * Logged-in users can like answers provided by others.
     * The number of likes for each answer is displayed.
-
-## Project Structure
-
-quora_project/
-├── quora_app/
-│   ├── migrations/
-│   │   └── ...
-│   ├── templates/
-│   │   └── login.html
-│   │   └── base.html
-│   │   └── question_detail.html
-│   │   └── question_list.html
-│   │   └── registration.html
-│   │   └── ask_question.html
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── quora_project/
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── db.sqlite3
-├── manage.py
-└── Readme.md
-
 
 ## Key Implementation Details
 

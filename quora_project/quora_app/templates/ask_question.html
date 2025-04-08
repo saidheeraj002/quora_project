@@ -7,7 +7,7 @@
 <hr>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }} {# Render form fields as paragraphs #}
+    {{ form.as_p }}
     <button type="submit" class="btn btn-success">Post Question</button>
 </form>
 {% endblock %}
