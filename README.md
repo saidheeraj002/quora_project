@@ -57,3 +57,7 @@ The website provides the following core features:
 * **Views:** Django views handle the application logic, interacting with the models and forms to process user requests and render templates.
 * **URLs:** URL patterns map web addresses to your Django views.
 * **Templates:** Basic HTML templates are used to display data to the user and provide interactive elements (forms, links, etc.).
+
+
+  ![image](https://github.com/user-attachments/assets/a8e4cc70-4682-4609-b1c0-9fb8792ab920)
+
