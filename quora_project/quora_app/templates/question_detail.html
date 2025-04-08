@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ question.title }}{% endblock %}
+
+{% block content %}
+<h2>{{ question.title }}</h2>
+<p class="text-muted">Asked by {{ question.author.username }} on {{ question.created_at }}</p>
+{% if question.description %}
+    <p>{{ question.description|linebreaksbr }}</p>
+{% endif %}
+<hr>
+
+<h4>Answers ({{ answers.count }})</h4>
+
+    <h5>Post Your Answer</h5>
+    <form method="post" action="{% url 'quora_app:add_answer' question.id %}">
+        {% csrf_token %}
+        {{ answer_form.as_p }} {# Render form fields as paragraphs #}
+        <button type="submit" class="btn btn-primary mb-3">Submit Answer</button>
+    </form>
+    <hr> <hr>
+
+
+{% for answer in answers %}
+    <div class="card mb-3">
+         <div class="card-body">
+            <p>{{ answer.content|linebreaksbr }}</p>
+            <small class="text-muted">Answered by {{ answer.author.username }} {{ answer.created_at }}</small>
+
+            {# Like Button - Simple form POST #}
+             <form method="post" action="{% url 'quora_app:like_answer' answer.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm {% if user in answer.likes.all %}btn-danger{% else %}btn-outline-danger{% endif %}">
+                    Like{% if user in answer.likes.all %}d{% endif %} ({{ answer.total_likes }})
+                </button>
+            </form>
+         </div>
+    </div>
+{% empty %}
+    <p>No answers yet.</p>
+{% endfor %}
+
+{% endblock %}

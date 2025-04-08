@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Recent Questions</h2>
+<hr>
+{% if questions %}
+    {% for question in questions %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><a href="{% url 'quora_app:question_detail' question.id %}">{{ question.title }}</a></h5>
+                <p class="card-text"><small class="text-muted">Asked by {{ question.author.username }} on {{ question.created_at }}</small></p> <p class="card-text">{{ question.description|truncatewords:30 }}</p> {# Show a preview #}
+                <a href="{% url 'quora_app:question_detail' question.id %}" class="btn btn-sm btn-primary">View Answers ({{ question.answers.count }})</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No questions have been asked yet.</p>
+        <a href="/ask_question" class="btn btn-success">Be the first to ask!</a>
+{% endif %}
+{% endblock %}
