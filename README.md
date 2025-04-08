@@ -34,19 +34,19 @@ Follow these steps to set up and run the project on your local machine:
 
 The website provides the following core features:
 
-**User Authentication:**
+1. **User Authentication:**
     * Users can create new accounts through a registration form.
     * Registered users can log in and log out of their accounts.
 
-**Question Management:**
+2. **Question Management:**
     * Logged-in users can post new questions.
     * All posted questions are visible to all users.
 
-**Answer Management:**
+3. **Answer Management:**
     * Logged-in users can answer questions posted by others.
     * Answers are displayed below their respective questions.
 
-**Liking Answers:**
+4. **Liking Answers:**
     * Logged-in users can like answers provided by others.
     * The number of likes for each answer is displayed.
 
