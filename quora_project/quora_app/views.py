@@ -8,8 +8,6 @@ def login(request):
     form = LoginForm()
     return render(request, "login.html", {'form': form})
 
-def login_submit(request):
-    return render(request, "home.html")
 
 
 def register_view(request):
